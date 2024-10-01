@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "simple_rag",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/all_rag_techniques_runnable_scripts/simple_rag.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--path", "/media/ofry/4T-Storage/ScrapeIndex/98800bd367de1be48c6bb87e4b47d20e/content/adobe_content.md",
+                "--embeddings", "openai",
+                "--chat_model", "ollama",
+                "--chunk_size", "10000",
+                "--chunk_overlap", "500",
+                "--n_retrieved", "4",
+                "--query", "What is the modulus of elasticity of yellow birch?",
+                "--evaluate", "False"
+            ]
+        }
+    ]
+}

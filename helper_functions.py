@@ -78,7 +78,7 @@ def encode_pdf(path, chunk_size=1000, chunk_overlap=200):
     return vectorstore
 
 
-def encode_from_string(content, chunk_size=1000, chunk_overlap=200):
+def encode_from_string(content, embeddings=OpenAIEmbeddings(), chunk_size=1000, chunk_overlap=200):
     """
     Encodes a string into a vector store using OpenAI embeddings.
 
@@ -119,9 +119,8 @@ def encode_from_string(content, chunk_size=1000, chunk_overlap=200):
             chunk.metadata['relevance_score'] = 1.0
 
         # Generate embeddings and create the vector store
-        embeddings = OpenAIEmbeddings()
+        # embeddings = OpenAIEmbeddings()
         vectorstore = FAISS.from_documents(chunks, embeddings)
-
     except Exception as e:
         raise RuntimeError(f"An error occurred during the encoding process: {str(e)}")
 
